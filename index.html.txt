@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CeroCapital – Gana dinero con 0 inversión</title>
+  <meta name="description" content="App y guía gratuita para empezar a generar ingresos reales sin invertir ni un euro. Freelance, microtareas, afiliados y más.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f8fafc;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #22c55e;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 24px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #22c55e;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 80px 0 100px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #22c55e;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #22c55e;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn:hover {
+      background: #16a34a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(34, 197, 94, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid #475569;
+      margin-left: 12px;
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      border-color: #22c55e;
+      color: #22c55e;
+      background: transparent;
+    }
+
+    /* Métodos */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 50px;
+      font-size: 1.15rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* Cómo funciona */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: #22c55e;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin: 0 auto 16px;
+    }
+
+    /* CTA final */
+    .cta {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      border-radius: 24px;
+      margin: 40px 0;
+    }
+
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: #94a3b8;
+      margin-bottom: 30px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #22c55e;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .btn-secondary {
+        display: block;
+        margin: 16px auto 0;
+        width: fit-content;
+      }
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">Cero<span>Capital</span></div>
+      <nav>
+        <a href="#metodos">Métodos</a>
+        <a href="#como">Cómo funciona</a>
+        <a href="#empezar">Empezar</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Gana dinero real<br>con <span>0 inversión</span></h1>
+      <p>La guía y herramientas gratuitas para empezar a generar ingresos desde cero. Sin cursos de pago, sin estafas, solo métodos que funcionan en 2026.</p>
+      <a href="#empezar" class="btn">Empezar ahora →</a>
+      <a href="#metodos" class="btn btn-secondary">Ver métodos</a>
+    </div>
+  </section>
+
+  <!-- Métodos -->
+  <section class="section" id="metodos">
+    <div class="container">
+      <h2 class="section-title">Métodos reales con 0€</h2>
+      <p class="section-subtitle">Elige el que mejor se adapte a ti y empieza hoy</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">💼</div>
+          <h3>Freelance</h3>
+          <p>Ofrece servicios en Fiverr, Upwork o Workana: redacción, edición, diseño, prompts de IA, etc.</p>
+          <span class="badge">50-400€/mes</span>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✅</div>
+          <h3>Microtareas & Encuestas</h3>
+          <p>Freecash, Clickworker, Prolific, Swagbucks… Tareas rápidas desde el móvil.</p>
+          <span class="badge">20-80€/mes</span>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🔗</div>
+          <h3>Marketing de Afiliados</h3>
+          <p>Recomienda productos y herramientas. Ganas comisión por cada venta o registro.</p>
+          <span class="badge">30-300€/mes</span>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>Contenido corto</h3>
+          <p>TikTok, Reels y Shorts (con o sin cara). El algoritmo hace el resto.</p>
+          <span class="badge">0 → 1000€+</span>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📄</div>
+          <h3>Productos digitales</h3>
+          <p>Plantillas, ebooks, prompts, checklists… Crea una vez y vende muchas veces.</p>
+          <span class="badge">50-500€/mes</span>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🏠</div>
+          <h3>Vende lo que ya tienes</h3>
+          <p>Wallapop, Vinted, Milanuncios. El dinero más rápido que puedes conseguir.</p>
+          <span class="badge">50-300€ ya</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona -->
+  <section class="section" style="background: white;" id="como">
+    <div class="container">
+      <h2 class="section-title">Cómo funciona</h2>
+      <p class="section-subtitle">En 3 pasos simples</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Elige un método</h3>
+          <p>Selecciona el que mejor se adapte a tu tiempo y habilidades.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Sigue los pasos</h3>
+          <p>Cada método tiene una guía clara y enlaces directos a las plataformas.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Registra tus ganancias</h3>
+          <p>Lleva el control y ve cómo crece tu ingreso extra mes a mes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="empezar">
+    <div class="container">
+      <div class="cta">
+        <h2>¿Listo para empezar con 0€?</h2>
+        <p>No necesitas experiencia ni dinero. Solo constancia y las herramientas correctas.</p>
+        <a href="#metodos" class="btn">Ver todos los métodos →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>CeroCapital</strong> – Herramientas gratuitas para generar ingresos sin inversión.</p>
+      <p style="margin-top: 12px;">Hecho con ❤️ para quienes quieren empezar desde cero.</p>
+      <p style="margin-top: 20px; font-size: 0.8rem;">
+        Esta es una landing de demostración. Puedes modificarla y añadir tus propios enlaces de afiliado.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
